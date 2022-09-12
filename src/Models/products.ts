@@ -41,7 +41,7 @@ export class ProductStore {
         const sql = `INSERT INTO products (name, price, category) VALUES ($1, $2, $3) RETURNING *`;
         const result = await conn.query(sql, [product.name, product.price, product.category]);
         conn.release();
-        return result.rows;
+        return result.rows[0];
     } catch(err) {
         throw new Error(`${err}`);
     }

@@ -11,7 +11,7 @@ export default class OrdersRouter implements RouterInterface {
         const router = express.Router();
         router.get('/', all);
         router.post('/', createOrder);
-        router.get('/:user_id', getByUserId);
+        router.get('/user/:user_id', getByUserId);
         router.put('/:id', updateOrder);
         router.delete('/:id', deleteOrder);
         return router;
