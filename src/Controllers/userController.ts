@@ -1,7 +1,7 @@
 import dotenv from "dotenv";
 import jwt from "jsonwebtoken";
 import { Request, Response } from "express";
-import { UserStore } from "../Models/User";
+import { UserStore } from "../Models/users";
 
 dotenv.config();
 const store = new UserStore();
