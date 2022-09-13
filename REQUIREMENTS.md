@@ -5,37 +5,82 @@ These are the notes from a meeting with the frontend developer that describe wha
 
 ## API Endpoints
 #### Products
-- Index 
-- Show
-- Create [token required]
-- [OPTIONAL] Top 5 most popular products 
-- [OPTIONAL] Products by category (args: product category)
+- Index (GET `/api/products`)
+- Show (GET `/api/products/:id`)
+- Create [token required] (POST `/api/products`)
+- Products by category (args: product category) (GET `/api/products/category/:category`)
 
 #### Users
-- Index [token required]
-- Show [token required]
-- Create N[token required]
+- Index [token required] (GET `/api/users`)
+- Show [token required] (GET `/api/users/:id`)
+- Create N[token required] (POST `/api/users`)
+- Login (POST `/api/users/login`)
 
 #### Orders
-- Current Order by user (args: user id)[token required]
-- [OPTIONAL] Completed Orders by user (args: user id)[token required]
+- Index [token required] (GET `/api/orders`)
+- Show [token required] (GET `/api/orders/:user_id`)
+- Create [token required] (POST `/api/orders`)
+- Update [token required] (PUT `/api/orders/:id`)
+- Delete [token required] (DELETE `/api/orders/:id`)
+- Current Order by user (args: user id)[token required] (GET `/api/users/:id/active_order`)
+- Completed Orders by user (args: user id)[token required] (GET `/api/users/:id/complete_orders`)
 
 ## Data Shapes
 #### Product
 -  id
 - name
 - price
-- [OPTIONAL] category
+- category
+```
+CREATE TABLE products (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(100),
+    price NUMERIC,
+    category VARCHAR(100),
+);
+```
 
 #### User
 - id
 - firstName
 - lastName
+- email
 - password
-
+```
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    firstname VARCHAR(100),
+    lastname VARCHAR(100),
+    email VARCHAR(150),
+    password text
+) ;
+```
 #### Orders
 - id
-- id of each product in the order
-- quantity of each product in the order
+- status (acive/complete)
 - user_id
-- status of order (active or complete)
+```
+CREATE TABLE orders (
+    id SERIAL PRIMARY KEY,
+    status VARCHAR(100),
+    user_id SERIAL,
+    CONSTRAINT fk_user
+        FOREIGN KEY (user_id)
+            REFERENCES users(id)
+            ON DELETE CASCADE
+);
+```
+
+#### products_orders
+- id
+- product_id
+- order_id
+- qty
+```
+CREATE TABLE products_orders (
+    id SERIAL PRIMARY KEY,
+    qty INTEGER,
+    product_id SERIAL REFERENCES products(id) ON DELETE CASCADE,
+    order_id SERIAL REFERENCES orders(id) ON DELETE CASCADE
+);
+```
