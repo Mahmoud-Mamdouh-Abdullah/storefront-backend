@@ -18,6 +18,7 @@ npm install
 ```
 PGHOST=localhost
 PGDATABASE=##
+PG_TEST_DATABASE=##
 PGUSER=postgres
 PGPASSWORD=##
 BCRYPT_PASSWORD=##
@@ -25,6 +26,7 @@ SALT_ROUNDS=10
 JWT_SECRET=##
 API_PORT=3000
 DATABASE_PORT=5432
+ENV=dev
 ```
 `add your own database name, postgres password, bcrypt passowrd and jwt secret.`
 
