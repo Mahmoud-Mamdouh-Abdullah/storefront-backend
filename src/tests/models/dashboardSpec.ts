@@ -2,7 +2,7 @@ import { DashboardStore } from "../../Models/dashboard";
 
 const store = new DashboardStore();
 
-describe('Testing Dashboard Model', () => {
+xdescribe('Testing Dashboard Model', () => {
 
     it('getCurrentOrder(2) should return list of products info in active order of user_id=2', async () => {
         const result = await store.getCurrentOrder(2);
