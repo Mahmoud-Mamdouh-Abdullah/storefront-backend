@@ -7,7 +7,7 @@ const user: User = {
     email: 'mm@gmail.com',
     password: '123',
 };
-xdescribe('testing Users Model', () => {
+describe('testing Users Model', () => {
     it('should have index methode', () => {
         expect(store.index).toBeDefined();
     });

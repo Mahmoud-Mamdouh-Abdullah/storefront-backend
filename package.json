@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jasmine",
+    "test": "tsc && jasmine",
     "start": "node dist/app.js",
     "dev": "tsc-watch --onSuccess \"nodemon ./dist/app.js\""
   },

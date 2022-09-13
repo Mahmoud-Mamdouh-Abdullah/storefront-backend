@@ -6,7 +6,7 @@ const product: Product = {
     price: 255,
     category: 'Women Clothes',
 };
-xdescribe('Testing Products Model', () => {
+describe('Testing Products Model', () => {
     it('should have index() methode', () => {
         expect(store.index).toBeDefined();
     });
