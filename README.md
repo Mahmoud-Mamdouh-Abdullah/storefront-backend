@@ -1,5 +1,5 @@
 # storefront-backend
-Simple E-Commerce Backend API0
+a Backend API for an E-Commerce Application
 ## Technologies Used
 Your application must make use of the following libraries:
 - Postgres for the database
