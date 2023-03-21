@@ -9,7 +9,7 @@ export default class Server {
 
     this._server.get("/", (_req: Request, res: Response) => {
       res.send({
-        msg: "Welcome !! This Is the API Endpoint",
+        msg: "Welcome !! This Is the storefront API Endpoint",
       });
     });
   }
